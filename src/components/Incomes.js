@@ -1,40 +1,49 @@
 import React from 'react'
 import {Collapse, ButtonGroup, Form} from 'react-bootstrap';
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useContext } from 'react';
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
-import { incomeList} from '../helper/incomeList';
 import { recurrentType } from '../helper/recurrentType';
+import MainContext from '../context/MainContext';
 
 export default function Incomes() {
+    const {incomes, setIncomes, totalIncome, setTotalIncome} = useContext(MainContext);
+
     const [open, setOpen] = useState(false);
-    const [incomes, setIncomes] = useState(incomeList);
     const [income, setIncome] = useState('');
     const [amount, setAmount] = useState();
     const [text, setText] = useState();
     const [recurrent, setRecurrent] = useState(false);
     const [number, setNumber] = useState();
     const [type, setType] = useState();
-    const [totalIncome, setTotalIncome] = useState();
 
     useEffect(() => {
-        if(incomeList.length > 0){
+        if(incomes.length > 0){
             var total = 0;
-            incomeList.map((income) => {
+            incomes.map((income) => {
                 if(income.recurrent)
-                    total += income.amount * income.number;
+                    total += parseInt(income.amount * income.number);
                 else
-                    total += income.amount;
+                    total += parseInt(income.amount);
             });
             setTotalIncome(total);
         }
     },[]);
 
     useEffect(() => {
-        console.log(income.text)
-        var setIncomes = [...incomes, income];
-        if(income.text != null && income.text != '' && income.text != undefined)
-            setIncomes(setIncomes);
-        console.log(incomes)
+        var newExpenses = [...incomes, income];
+        console.log(income)
+        if(income.text != null && income.text != '' && income.text != undefined){
+            setIncomes(newExpenses);
+
+            var total = totalIncome;
+            if(income.recurrent)
+                total += parseInt(income.amount * income.number);
+            else
+                total += parseInt(income.amount);
+
+            setTotalIncome(total);
+        }
+           
     },[income]);
 
     var onChangeIncome = (e) => {
@@ -68,7 +77,7 @@ export default function Incomes() {
         newIncome.type = type;
         newIncome.recurrent = recurrent;
 
-        setIncomes(newIncome);
+        setIncome(newIncome);
     }
       
     var findRecurrentType = (type) => {
@@ -78,12 +87,6 @@ export default function Incomes() {
 
   return (
     <div>
-        {/* <Button text="Add Expenses" collapseId="expensesCollapse"/>
-        <div className="collapse" id="expensesCollapse">
-            <div className="card card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
-        </div> */}
         <div className='top-button'>
             <button className='tech-primary' onClick={() => setOpen(!open)}>
                 New Income
@@ -108,13 +111,13 @@ export default function Incomes() {
                         className="col-md-4"
                     />
                         {recurrent ?( <div className='col-md-8 recurrent-group'>
-                                    <input className="recurrent-number" type="number" name="number" value="" onChange={(e)=>onChangeIncome(e)}></input>
-                                    <Form.Select aria-label="Default select example" name="type" value="" onChange={(e)=>setType(e.target.value)}>
+                                    <input className="recurrent-number" type="number" name="number" onChange={ (e) => onChangeIncome(e) }></input>
+                                    <Form.Control as="select" onChange={(e) => setType(e.target.value)}>
                                         <option>Select</option>
                                         <option value="weekly">Weekly</option>
                                         <option value="monthly">Monthly</option>
                                         <option value="yearly">Yearly</option>
-                                    </Form.Select></div>)
+                                    </Form.Control></div>)
                         : ''}
                 </ButtonGroup>
             </div>

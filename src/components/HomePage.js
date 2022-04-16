@@ -5,7 +5,9 @@ import Incomes from './Incomes';
 export default function HomePage() {
   return (
   <div className="row">
-    <div></div>
+    <div className='total-amount-area'>
+      <div className='total-amount'></div>
+    </div>
     <div className='col-md-6'>
       <Incomes/>
     </div>

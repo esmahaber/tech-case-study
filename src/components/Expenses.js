@@ -1,24 +1,26 @@
 import React from 'react'
-import {Collapse, ToggleButton, ButtonGroup, Form} from 'react-bootstrap';
-import { useState,useEffect } from 'react';
+import {Collapse, ButtonGroup, Form} from 'react-bootstrap';
+import { useState,useEffect, useContext } from 'react';
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
-import { expenseList } from '../helper/expenseList';
 import { recurrentType } from '../helper/recurrentType'
+import MainContext from '../context/MainContext';
+
+
 export default function Expenses() {
-    const [open, setOpen] = useState(false);
-    const [expenses, setExpenses] = useState(expenseList);
+    const {expenses, setExpenses, totalExpense, setTotalExpense} = useContext(MainContext);
+
+    const [open, setOpen] = useState(false);    
     const [expense, setExpense] = useState('');
     const [amount, setAmount] = useState();
     const [text, setText] = useState();
     const [recurrent, setRecurrent] = useState(false);
     const [number, setNumber] = useState();
     const [type, setType] = useState();
-    const [totalExpense, setTotalExpense] = useState();
 
     useEffect(() => {
-        if(expenseList.length > 0){
+        if(expenses.length > 0){
             var total = 0;
-            expenseList.map((expense) => {
+            expenses.map((expense) => {
                 if(expense.recurrent)
                     total += parseInt(expense.amount * expense.number);
                 else
@@ -109,8 +111,8 @@ export default function Expenses() {
                         className="col-md-4"
                     />
                         {recurrent ?( <div className='col-md-8 recurrent-group'>
-                                    <input className="recurrent-number" type="number" name="number" value="" onChange={(e)=>onChangeExpense(e)}></input>
-                                    <Form.Select aria-label="Default select example" name="type" value="" onChange={(e)=>setType(e.target.value)}>
+                                    <input className="recurrent-number" type="number" name="number" onChange={(e)=>onChangeExpense(e)}></input>
+                                    <Form.Select aria-label="Default select example" name="type" onChange={(e)=>setType(e.target.value)}>
                                         <option>Select</option>
                                         <option value="weekly">Weekly</option>
                                         <option value="monthly">Monthly</option>
