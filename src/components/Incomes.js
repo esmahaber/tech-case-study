@@ -1,8 +1,7 @@
 import React from 'react'
-import {Collapse, ButtonGroup, Form} from 'react-bootstrap';
+import {ButtonGroup, Form} from 'react-bootstrap';
 import { useState,useEffect, useContext } from 'react';
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
-import { recurrentType } from '../helper/recurrentType';
 import MainContext from '../context/MainContext';
 
 export default function Incomes() {
@@ -79,21 +78,15 @@ export default function Incomes() {
 
         setIncome(newIncome);
     }
-      
-    var findRecurrentType = (type) => {
-        var recurrent = type;
-        return recurrentType[recurrent];
-    }
 
   return (
     <div>
         <div className='top-button'>
-            <button className='tech-primary' onClick={() => setOpen(!open)}>
-                New Income
-            </button>
+            <div className='title' onClick={() => setOpen(!open)}>
+                Income
+            </div>
         </div>
        
-        <Collapse in={open}>
             <div id="incomes-collapse">
                 <div className='input-group'>
                     <input className='col-6 new-incomes' name="text" placeholder='Add New Incomes' onChange={(e)=>onChangeIncome(e)}/>
@@ -121,7 +114,6 @@ export default function Incomes() {
                         : ''}
                 </ButtonGroup>
             </div>
-        </Collapse>
         <div className='income-list'>
             <ul>
                 {incomes.map((income, index) =>

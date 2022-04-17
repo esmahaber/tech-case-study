@@ -1,15 +1,17 @@
+body{
+  background-color: #fcfcfc;
+}
 .container{
   margin: 50px auto;
 }
-button{
+button {
   cursor: pointer;
-  color:#fff !important;
+  color:#fff;
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
-  background-color: transparent;
   border: 1px solid transparent;
   padding: 0.3rem 2rem;
   height: 42px;
@@ -26,7 +28,7 @@ select{
   height: 42px;
   width: 100px;
 }
-ul{
+.incomes-area ul, .expenses-area ul{
   padding-left: 0px;
   margin: 0px;
   margin-top:16px;
@@ -34,7 +36,7 @@ ul{
   border: #EEEEEE 1px solid;
   background-color: #F7F7F7;
 }
-ul li{
+.incomes-area ul li, .expenses-area ul li{
   list-style: none;
   height: 42px;
   border: #EEEEEE solid 1px;
@@ -43,11 +45,11 @@ ul li{
   padding: 24px;
   background-color: #fff;
 }
-ul li:first-child{
+.incomes-area  ul li:first-child, .expenses-area ul li:first-child{ 
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-ul li:last-child{
+.incomes-area ul li:last-child, .expenses-area ul li:last-child{
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
@@ -56,7 +58,7 @@ ul li svg{
   color: #019267;
 }
 .espenses-list li svg{
-  color: #DD4A48;
+  color: #dd4a48;
 }
 .income-list li svg{
   color: #019267;
@@ -84,7 +86,7 @@ ul li svg{
 .tech-primary:hover {
   opacity: 0.8;
   position: relative;
-  top: -2px;
+  transform: translateY(-3px);
 }
 .tech-secondary{
   background-color: #F55353 ;
@@ -106,8 +108,14 @@ ul li svg{
   background-color: #f34141;
   border-color: #f34141;
 }
+.tech-link{
+  background-color: transparent;
+  color: #0d6efd !important;
+  text-decoration: underline !important;
+  padding: 0px !important;
+}
 .top-button{
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 input #recurrent{
@@ -171,4 +179,51 @@ input[type=checkbox] {
 
 input[name="recurrent"]{
   margin-right: 8px;
+}
+
+.total-balance-area{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.total-balance .positive{
+  color: #019267;
+}
+.total-balance .negative{
+  color: #DD4A48;
+}
+.total-balance{
+  padding: 16px;
+  background-color: #fafafa;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.nav-tabs button{
+  color: #000 !important;
+}
+.title{
+  font-size: 24px;
+  color: #363b44;
+  font-weight: bold;
+  background-color: #fafafa;
+
+}
+.incomes-area, .expenses-area{
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.bar-area{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#forecaste-collapse{
+  background-color: #fffaf0e8;
+  padding: 32px;
+  margin-bottom: 102px;
 }
