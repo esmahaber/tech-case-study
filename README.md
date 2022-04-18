@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# tech-case-study
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Tech case study is a personal expense management web application.
+The website contains components where the user enters weekly, monthly and yearly expenses and income and can view statistics
 
-In the project directory, you can run:
+## File Structure
+```tech-case-study
+    ├──  node_modules
+    ├──  public
+    │   ├──favicon.ico
+    │   ├──index.html
+    │    └── manifest.json
+    ├──  src
+    │    ├── components
+    │    │    ├── Expenses.js
+    │    │    ├── Forecaste.js
+    │    │    ├── HomePage.js
+    │    │    └── Incomes.js
+    │    ├──  context
+    │    │   └──  MainContext
+    │    ├──  helper
+    │    │      ├── expenseList.js
+    │    │       ├──  incomeList.js
+    │    │       ├──  recurrentType.js
+    │    ├── App.css
+    │    ├──  App.js
+    │    ├──   App.test.js
+    │    ├──  index.css
+    │    ├──  reportWebVitals.js
+    │    └──  setupTests.js
+    ├──  .gitignore
+    ├──   package-lock.json
+    ├──   package.json
+    └── README.md
+```
 
-### `npm start`
+## Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- React Context
+- React Hooks
+- react-bootstrap
+- react-chartjs-2
+- react-icons
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The UI is gathered under App.css. Bootstrap was used for the collapse structure. The icons in the project are used with the react-icons npm package.
+In the project, state transfer to sub-components is done with Context.
 
-### `npm test`
+## Local Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before you can run the project, you must clone this repo to your personal computer.
+You must install [npm](https://nodejs.org/en/download/) on your PC.
+Go to the project directory you cloned. 
+Download all dependencies with ```npm install``` command.
+After the dependencies are installed, you can run the project with the ```npm run``` command in the project file directory.
 
-### `npm run build`
+## Description
+You can find the detailed description of the components in the table below.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| File | Description |
+| ------ | ------ |
+| Total Balance | Indicates the remaining balance. |
+| Show Forecaste | There is a column chart that reflects the weekly, monthly and yearly display of expenses and income (forecaste.js). The react-chartjs-2 npm package is used for the column chart used. |
+| Income | You can see the income list in this component. Single income or recurring income can be added upon request. It consists of two parts as list and addition area. (Incomes.js) |
+| Expense | Can see the expense list in this component. It can add single expense or recurring expense according to demand. It consists of two parts as list and adding area. (Expense.js) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![view](./tech-case-study.png)
+![view-collapse](./view-collapse.png)
