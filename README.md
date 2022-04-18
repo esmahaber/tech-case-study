@@ -3,7 +3,7 @@
 ## Introduction
 
 Tech case study is a personal expense management web application.
-The website contains components where the user enters weekly, monthly and yearly expenses and income and can view statistics
+The website contains components where the user enters weekly, monthly, yearly expenses and income also can view statistics.
 
 ## File Structure
 ```tech-case-study
@@ -22,25 +22,25 @@ The website contains components where the user enters weekly, monthly and yearly
     │    │   └──  MainContext
     │    ├──  helper
     │    │      ├── expenseList.js
-    │    │       ├──  incomeList.js
-    │    │       ├──  recurrentType.js
+    │    │      ├──  incomeList.js
+    │    │      ├──  recurrentType.js
     │    ├── App.css
-    │    ├──  App.js
-    │    ├──   App.test.js
-    │    ├──  index.css
-    │    ├──  reportWebVitals.js
-    │    └──  setupTests.js
-    ├──  .gitignore
-    ├──   package-lock.json
-    ├──   package.json
+    │    ├── App.js
+    │    ├── App.test.js
+    │    ├── index.css
+    │    ├── reportWebVitals.js
+    │    └── setupTests.js
+    ├── .gitignore
+    ├── package-lock.json
+    ├── package.json
     └── README.md
 ```
 
 ## Technologies
 
 - React
-- React Context
 - React Hooks
+- React Context
 - react-bootstrap
 - react-chartjs-2
 - react-icons
@@ -50,7 +50,7 @@ In the project, state transfer to sub-components is done with Context.
 
 ## Local Setup
 
-Before you can run the project, you must clone this repo to your personal computer.
+Before run the project, you can clone this repo to your computer.
 You must install [npm](https://nodejs.org/en/download/) on your PC.
 Go to the project directory you cloned. 
 Download all dependencies with ```npm install``` command.
@@ -62,8 +62,8 @@ You can find the detailed description of the components in the table below.
 | File | Description |
 | ------ | ------ |
 | Total Balance | Indicates the remaining balance. |
-| Show Forecaste | There is a column chart that reflects the weekly, monthly and yearly display of expenses and income (forecaste.js). The react-chartjs-2 npm package is used for the column chart used. |
-| Income | You can see the income list in this component. Single income or recurring income can be added upon request. It consists of two parts as list and addition area. (Incomes.js) |
+| Show Forecaste | There is a column chart that reflects the weekly, monthly and yearly display of expenses and incomes (Forecaste.js). The react-chartjs-2 npm package is used for the column chart used. |
+| Income | Can see the income list in this component. Single income or recurring income can be added upon request. It consists of two parts as list and addition area. (Incomes.js) |
 | Expense | Can see the expense list in this component. It can add single expense or recurring expense according to demand. It consists of two parts as list and adding area. (Expense.js) |
 
 ![view](./tech-case-study.png)
